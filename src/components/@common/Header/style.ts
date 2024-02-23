@@ -19,7 +19,6 @@ export const RightBox = styled.div`
 export const Home = styled.p`
   color: ${theme.grey900};
   ${font.Text};
-  ${theme.grey900};
 
   &:hover {
     color: ${theme.black};
