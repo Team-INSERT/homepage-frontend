@@ -1,6 +1,6 @@
 const fontGenerator = (weight: number, size: number, lineHeight: number) => `
     font-weight: ${weight};
-    font-size: ${size}px;
+    font-size: ${size}rem;
     line-height: ${lineHeight}%;
     `;
 
