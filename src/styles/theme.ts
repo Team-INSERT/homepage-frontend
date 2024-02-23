@@ -11,7 +11,7 @@ const theme = {
   grey800: "#4D4D4D",
   grey900: "#333333",
 
-  bssmBlue: "007CFF",
+  bssmBlue: "#007CFF",
   white: "#FFFFFF",
   pink: "#FF3BAB",
   green: "#00D800",
