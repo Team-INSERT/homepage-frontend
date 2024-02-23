@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ReactQueryProvider, StyledComponentsProvider } from "@/provider";
-import { GlobalStyle } from "@/styles";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,10 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ReactQueryProvider>
-          <StyledComponentsProvider>
-            <GlobalStyle />
-            {children}
-          </StyledComponentsProvider>
+          <StyledComponentsProvider>{children}</StyledComponentsProvider>
         </ReactQueryProvider>
       </body>
     </html>

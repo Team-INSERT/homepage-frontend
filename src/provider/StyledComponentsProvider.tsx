@@ -3,6 +3,7 @@
 import { useServerInsertedHTML } from "next/navigation";
 import { useState } from "react";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
+import { GlobalStyle } from "@/styles";
 
 const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
@@ -18,6 +19,7 @@ const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
 
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
+      <GlobalStyle />
       {children}
     </StyleSheetManager>
   );
