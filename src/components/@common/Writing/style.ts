@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { font } from "@/styles";
+import SaveFile from "@/assets/SaveFile";
 
 export const Display = styled.div`
   background-color: aliceblue;
@@ -8,7 +9,7 @@ export const Display = styled.div`
   padding: 60px 24px 80px 24px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
 export const Head = styled.div`
   display: flex;
@@ -43,4 +44,29 @@ export const Content = styled.p`
   ${font.Text}
   width: 100%;
   margin-bottom: 32px;
+`;
+export const FileLayout = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+`;
+export const FileName = styled.button`
+  display: flex;
+  padding: 6px 9px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  background: var(--grey-100, #f2f2f2);
+  ${font.Caption}
+  color: var(--grey-400, #B3B3B3);
+`;
+export const FileImg = styled(SaveFile)`
+  width: 16px;
+  height: 16px;
+`;
+export const QuickView = styled.p`
+  color: var(--primary-bssm-blue, #007cff);
+  ${font.Caption}
 `;

@@ -15,6 +15,13 @@ const Writing = () => {
         <Line />
       </S.Head>
       <S.Content>글이나 사진</S.Content>
+      <S.FileLayout>
+        <S.FileName>
+          <S.FileImg />
+          파일명
+        </S.FileName>
+        <S.QuickView>[바로보기]</S.QuickView>
+      </S.FileLayout>
     </S.Display>
   );
 };
