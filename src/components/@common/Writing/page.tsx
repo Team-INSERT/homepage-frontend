@@ -4,31 +4,66 @@ import Line from "@/assets/Line";
 
 import * as S from "./style";
 
-const Writing = () => {
-  return (
-    <S.Display>
-      <S.Head>
-        <S.CatTitle>
-          <S.Category>카테고리</S.Category>
-          <S.Title>제목</S.Title>
-        </S.CatTitle>
-        작성자 | 작성날짜
-        <Line />
-      </S.Head>
-      <S.Content>글이나 사진</S.Content>
-      <S.FileLayout>
-        <S.FileName>
-          <S.FileImg />
-          파일명
-        </S.FileName>
-        <S.QuickView>[바로보기]</S.QuickView>
-      </S.FileLayout>
-      <S.BackToList mode="GLOW" radius={8}>
-        <S.LeftArrow />
-        목록으로 돌아가기
-      </S.BackToList>
-    </S.Display>
-  );
+type WriteModeProps = {
+  category: string;
+  title: string;
+  writer: string;
+  date: string;
+  content: string;
+  fileName: string;
+  fileLink: string;
+  mode: "WRITE";
+};
+
+type ReadModeProps = {
+  mode: "READ";
+};
+
+type WritingProps = WriteModeProps | ReadModeProps;
+
+const Writing = (props: WritingProps) => {
+  const { mode } = props;
+  if (mode === "WRITE") {
+    const { category, title, writer, date, content, fileName, fileLink } =
+      props as WriteModeProps;
+    return (
+      <S.WDisplay>
+        <S.WHead>
+          <S.WCatTitle>
+            <S.WCategory>{category}</S.WCategory>
+            <S.WTitle>{title}</S.WTitle>
+          </S.WCatTitle>
+          {writer} | {date}
+          <Line />
+        </S.WHead>
+        <S.WContent>{content}</S.WContent>
+        <S.WFileLayout>
+          <a href={fileLink} download>
+            <S.WFileName>
+              <S.WFileImg />
+              {fileName}
+            </S.WFileName>
+          </a>
+          <S.WQuickView>[바로보기]</S.WQuickView>
+        </S.WFileLayout>
+        <S.WBackToList mode="GLOW" radius={8}>
+          <S.WLeftArrow />
+          목록으로 돌아가기
+        </S.WBackToList>
+      </S.WDisplay>
+    );
+  }
+  if (mode === "READ") {
+    return (
+      <S.RDisplay>
+        <S.RHead>
+          <S.RCategory>카테고리</S.RCategory>
+          <S.RTitle value="제목을 입력하세요" />
+          <Line />
+        </S.RHead>
+      </S.RDisplay>
+    );
+  }
 };
 
 export default Writing;
