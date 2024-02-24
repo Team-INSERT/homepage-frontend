@@ -1,6 +1,7 @@
 "use client";
 
 import * as S from "./style";
+import Link from "next/link";
 import Logo from "@/assets/logo";
 
 export default function Home() {
@@ -9,9 +10,15 @@ export default function Home() {
       <S.Container>
         <Logo />
         <S.RightBox>
-          <S.Home>홈</S.Home>
-          <S.Intro>학교소개</S.Intro>
-          <S.News>학교소식</S.News>
+          <Link href="/home">
+            <S.Text>홈</S.Text>
+          </Link>
+          <Link href="/Intro">
+            <S.Text>학교소개</S.Text>
+          </Link>
+          <Link href="/News">
+            <S.Text>학교소식</S.Text>
+          </Link>
         </S.RightBox>
       </S.Container>
     </>

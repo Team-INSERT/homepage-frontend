@@ -1,21 +1,18 @@
 import styled from "styled-components";
-import { default as theme } from "@/styles/theme";
+import { font, theme, flex } from "@/styles";
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${flex.BETWEEN};
   background-color: ${theme.grey900};
+  width: 100%;
   padding: 72px 140px 72px 140px;
 `;
 
 export const TextBox = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flex.COLUMN_FLEX};
 `;
 export const Text = styled.p`
   color: ${theme.white};
+  ${font.BigTitle};
   font-size: 40px;
-  font-weight: 700;
-  line-height: 110%;
 `;

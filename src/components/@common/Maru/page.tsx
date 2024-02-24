@@ -11,7 +11,6 @@ export default function Home() {
           <S.Text>입학,</S.Text>
           <S.Text>maru에서 간편하게</S.Text>
         </S.TextBox>
-
         <Marulogo />
       </S.Container>
     </>
