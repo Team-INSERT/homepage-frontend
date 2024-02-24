@@ -2,62 +2,66 @@
 
 import Line from "@/assets/Line";
 import DownArrow from "@/assets/DownArrow";
+import UpArrow from "@/assets/UpArrow";
+import Add from "@/assets/Add";
 import { useState } from "react";
 
 import * as S from "./style";
+import Button from "../Button";
 
+// 오브젝트로 category,title,writer,date,content 전달받음
 type WriteModeProps = {
-  category: string;
-  title: string;
-  writer: string;
-  date: string;
-  content: string;
-  fileName: string;
-  fileLink: string;
-  mode: "WRITE";
+  info: { [key: string]: string };
+  mode: "READ";
 };
 
 type ReadModeProps = {
-  mode: "READ";
+  mode: "WRITE";
 };
 
 type WritingProps = WriteModeProps | ReadModeProps;
 
 const Writing = (props: WritingProps) => {
   const { mode } = props;
+
   const [isDropDown, setIsDropDown] = useState(false);
   const [catValue, setCatValue] = useState("카테고리");
+  const [RTitle, setRTitle] = useState("");
+  const [RContent, setRContent] = useState("");
+  const dropDownText = ["공지사항", "가정통신문", "행사갤러리"];
 
-  const toggleDropdown = () => {
-    setIsDropDown(!isDropDown);
-  };
-
-  const handleDropDownItemClick = (text: string) => {
+  const dropDownClick = (text: string) => {
     setCatValue(text);
     setIsDropDown(false);
   };
+  const changeTextareaHeight = () => {
+    const textarea = document.querySelector("textarea");
+    if (textarea) {
+      textarea.addEventListener("input", () => {
+        textarea.style.height = "auto";
+        textarea.style.height = `${textarea.scrollHeight}px`;
+      });
+    }
+  };
 
-  if (mode === "WRITE") {
-    const { category, title, writer, date, content, fileName, fileLink } =
-      props as WriteModeProps;
+  if (mode === "READ") {
+    const { info } = props as WriteModeProps;
     return (
       <S.WDisplay>
         <S.WHead>
           <S.WCatTitle>
-            <S.WCategory>{category}</S.WCategory>
-            <S.WTitle>{title}</S.WTitle>
+            <S.WCategory>{info.category}</S.WCategory>
+            <S.WTitle>{info.title}</S.WTitle>
           </S.WCatTitle>
-          {writer} | {date}
+          {info.writer} | {info.date}
           <Line />
         </S.WHead>
-        <S.WContent>{content}</S.WContent>
+        <S.WContent>{info.content}</S.WContent>
         <S.WFileLayout>
-          <a href={fileLink} download>
-            <S.WFileName>
-              <S.WFileImg />
-              {fileName}
-            </S.WFileName>
-          </a>
+          <S.WFileName>
+            <S.WFileImg />
+            파일 이름
+          </S.WFileName>
           <S.WQuickView>[바로보기]</S.WQuickView>
         </S.WFileLayout>
         <S.WBackToList mode="GLOW" radius={8}>
@@ -67,38 +71,53 @@ const Writing = (props: WritingProps) => {
       </S.WDisplay>
     );
   }
-  if (mode === "READ") {
+  if (mode === "WRITE") {
     return (
       <S.RDisplay>
         <S.RHead>
           <S.RCategoryLayout>
             <S.RCategory>{catValue}</S.RCategory>
-            <div onClick={toggleDropdown}>
-              <DownArrow />
-            </div>
+            <S.RArrowLayout onClick={() => setIsDropDown(!isDropDown)}>
+              {isDropDown ? <DownArrow /> : <UpArrow />}
+            </S.RArrowLayout>
           </S.RCategoryLayout>
-          {isDropDown && (
-            <S.RDropDown>
-              <S.RDropDownItem
-                onClick={() => handleDropDownItemClick("공지사항")}
-              >
-                공지사항
-              </S.RDropDownItem>
-              <S.RDropDownItem
-                onClick={() => handleDropDownItemClick("가정통신문")}
-              >
-                가정통신문
-              </S.RDropDownItem>
-              <S.RDropDownItem
-                onClick={() => handleDropDownItemClick("행사갤러리")}
-              >
-                행사갤러리
-              </S.RDropDownItem>
-            </S.RDropDown>
-          )}
-          <S.RTitle value="제목을 입력하세요" />
+          <S.RDropDown>
+            {isDropDown &&
+              dropDownText.map((item, index) => {
+                return (
+                  <S.RDropDownItem
+                    key={index}
+                    onClick={() => dropDownClick(item)}
+                  >
+                    {item}
+                  </S.RDropDownItem>
+                );
+              })}
+          </S.RDropDown>
+          <S.RTitle
+            value={RTitle}
+            placeholder="제목을 입력하세요"
+            onChange={(e) => setRTitle(e.target.value)}
+          />
           <Line />
         </S.RHead>
+        <S.RBottom>
+          <S.RContent
+            placeholder="글을 입력해주세요"
+            onInput={changeTextareaHeight}
+            onChange={(e) => setRContent(e.target.value)}
+            value={RContent}
+          />
+          <S.RAddFile>
+            <Add />
+            <S.RAddText>파일추가</S.RAddText>
+          </S.RAddFile>
+          <S.FixEnd>
+            <Button mode="BLUE" radius={4}>
+              수정 완료
+            </Button>
+          </S.FixEnd>
+        </S.RBottom>
       </S.RDisplay>
     );
   }

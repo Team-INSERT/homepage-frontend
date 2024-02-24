@@ -7,6 +7,7 @@ import Button from "../Button";
 export const WDisplay = styled.div`
   display: flex;
   width: 664px;
+  height: auto;
   padding: 60px 24px 80px 24px;
   flex-direction: column;
   justify-content: center;
@@ -89,7 +90,7 @@ export const RDisplay = styled.div`
   padding: 60px 24px 40px 24px;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 `;
 export const RHead = styled.div`
   display: flex;
@@ -107,10 +108,18 @@ export const RCategory = styled.p`
   color: var(--primary-bssm-blue, #007cff);
   ${font.Text}
 `;
+export const RArrowLayout = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
 export const RTitle = styled.input`
-  color: var(--grey-200, #d9d9d9);
   width: 100%;
   ${font.Title}
+
+  &::placeholder {
+    color: var(--grey-200, #d9d9d9);
+  }
 `;
 export const RDropDown = styled.div`
   display: flex;
@@ -122,6 +131,7 @@ export const RDropDownItem = styled.div`
   padding: 6px 0 6px 8px;
   align-items: center;
   ${font.Caption}
+  cursor: default;
 
   &:first-child {
     border-radius: 4px 4px 0px 0px;
@@ -129,4 +139,39 @@ export const RDropDownItem = styled.div`
   &:hover {
     background: var(--grey-100, #f2f2f2);
   }
+`;
+export const RContent = styled.textarea`
+  margin-top: 32px;
+  width: 100%;
+  ${font.Text}
+  resize: none;
+
+  &::placeholder {
+    color: var(--grey-200, #d9d9d9);
+  }
+`;
+export const RAddFile = styled.button`
+  display: flex;
+  padding: 4px 16px 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--primary-bssm-blue, #007cff);
+`;
+export const RAddText = styled.p`
+  color: var(--primary-bssm-blue, #007cff);
+  ${font.Caption}
+`;
+export const FixEnd = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
+export const RBottom = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
 `;
