@@ -1,15 +1,17 @@
 import styled from "styled-components";
-import { font } from "@/styles";
+import { flex, font } from "@/styles";
 import SaveFile from "@/assets/SaveFile";
+import Arrow from "@/assets/Arrow";
+import Button from "../Button";
 
 export const Display = styled.div`
-  background-color: aliceblue;
   display: flex;
   width: 664px;
   padding: 60px 24px 80px 24px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  border-radius: 24px;
 `;
 export const Head = styled.div`
   display: flex;
@@ -50,6 +52,7 @@ export const FileLayout = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  margin-bottom: 64px;
 `;
 export const FileName = styled.button`
   display: flex;
@@ -69,4 +72,13 @@ export const FileImg = styled(SaveFile)`
 export const QuickView = styled.p`
   color: var(--primary-bssm-blue, #007cff);
   ${font.Caption}
+`;
+export const LeftArrow = styled(Arrow)`
+  width: 20px;
+  height: 20px;
+`;
+export const BackToList = styled(Button)`
+  ${flex.CENTER}
+  display: flex;
+  gap: 8px;
 `;

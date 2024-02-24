@@ -1,6 +1,7 @@
 "use client";
 
 import Line from "@/assets/Line";
+
 import * as S from "./style";
 
 const Writing = () => {
@@ -22,6 +23,10 @@ const Writing = () => {
         </S.FileName>
         <S.QuickView>[바로보기]</S.QuickView>
       </S.FileLayout>
+      <S.BackToList mode="GLOW" radius={8}>
+        <S.LeftArrow />
+        목록으로 돌아가기
+      </S.BackToList>
     </S.Display>
   );
 };
