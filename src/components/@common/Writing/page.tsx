@@ -25,16 +25,16 @@ type WritingProps = WriteModeProps | ReadModeProps;
 
 const Writing = (props: WritingProps) => {
   const { mode } = props;
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isDropDown, setIsDropDown] = useState(false);
   const [catValue, setCatValue] = useState("카테고리");
 
   const toggleDropdown = () => {
-    setDropdownVisible(!isDropdownVisible);
+    setIsDropDown(!isDropDown);
   };
 
   const handleDropDownItemClick = (text: string) => {
     setCatValue(text);
-    setDropdownVisible(false);
+    setIsDropDown(false);
   };
 
   if (mode === "WRITE") {
@@ -77,7 +77,7 @@ const Writing = (props: WritingProps) => {
               <DownArrow />
             </div>
           </S.RCategoryLayout>
-          {isDropdownVisible && (
+          {isDropDown && (
             <S.RDropDown>
               <S.RDropDownItem
                 onClick={() => handleDropDownItemClick("공지사항")}
