@@ -13,6 +13,6 @@ export const TextBox = styled.div`
 `;
 export const Text = styled.p`
   color: ${theme.white};
-  ${font.BigTitle};
-  font-size: 40px;
+  ${font.BigTitle}
+  font-size: 2.5rem
 `;

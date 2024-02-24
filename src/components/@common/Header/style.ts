@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { font, theme, flex } from "@/styles";
 
+interface TextProps {
+  active: boolean;
+}
+
 export const Container = styled.div`
   ${flex.BETWEEN};
   background-color: ${theme.white};
@@ -15,7 +19,14 @@ export const RightBox = styled.div`
   cursor: pointer;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<TextProps>`
   color: ${theme.grey900};
   ${font.Text};
+
+  ${(props) =>
+    props.active &&
+    `
+    color: ${theme.black};
+    font-weight: 700;
+  `}
 `;
