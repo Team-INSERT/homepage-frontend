@@ -1,4 +1,4 @@
-export default function Arrow() {
+export default function LeftArrow() {
   return (
     <svg
       width="20"

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { flex, font } from "@/styles";
 import SaveFile from "@/assets/SaveFile";
-import Arrow from "@/assets/Arrow";
+import LArrow from "@/assets/LeftArrow";
 import Button from "../Button";
 
 export const WDisplay = styled.div`
@@ -74,7 +74,7 @@ export const WQuickView = styled.a`
   ${font.Caption}
   cursor: pointer;
 `;
-export const WLeftArrow = styled(Arrow)`
+export const WLeftArrow = styled(LArrow)`
   width: 20px;
   height: 20px;
 `;
@@ -97,6 +97,12 @@ export const RHead = styled.div`
   align-items: flex-start;
   gap: 16px;
 `;
+export const RCategoryLayout = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+`;
 export const RCategory = styled.p`
   color: var(--primary-bssm-blue, #007cff);
   ${font.Text}
@@ -105,4 +111,22 @@ export const RTitle = styled.input`
   color: var(--grey-200, #d9d9d9);
   width: 100%;
   ${font.Title}
+`;
+export const RDropDown = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const RDropDownItem = styled.div`
+  width: 76px;
+  display: flex;
+  padding: 6px 0 6px 8px;
+  align-items: center;
+  ${font.Caption}
+
+  &:first-child {
+    border-radius: 4px 4px 0px 0px;
+  }
+  &:hover {
+    background: var(--grey-100, #f2f2f2);
+  }
 `;
