@@ -1,3 +1,5 @@
+import Writing from "@/components/@common/Writing/page";
+
 export default function Home() {
-  return <div>홈</div>;
+  return <Writing />;
 }
