@@ -1,16 +1,22 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { font, theme, flex } from "@/styles";
 
-interface TextProps {
-  active: boolean;
+interface HeaderProps {
+  isDarkMode: boolean;
 }
 
-export const Container = styled.div`
+export const Container = styled.div<HeaderProps>`
   ${flex.BETWEEN};
   background-color: ${theme.white};
   width: 100%;
   position: fixed;
   padding: 15px 140px 15px 140px;
+
+  ${(props) =>
+    props.isDarkMode &&
+    css`
+      background-color: transparent;
+    `}
 `;
 
 export const RightBox = styled.div`
@@ -19,14 +25,14 @@ export const RightBox = styled.div`
   cursor: pointer;
 `;
 
-export const Text = styled.p<TextProps>`
+export const Text = styled.p<HeaderProps>`
   color: ${theme.grey900};
   ${font.Text};
 
   ${(props) =>
-    props.active &&
-    `
-    color: ${theme.black};
-    font-weight: 700;
-  `}
+    props.isDarkMode &&
+    css`
+      background-color: transparent;
+      color: ${theme.white};
+    `}
 `;

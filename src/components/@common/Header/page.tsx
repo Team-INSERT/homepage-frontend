@@ -1,56 +1,51 @@
 "use client";
 
-import * as S from "./style";
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import * as S from "./style";
+import { useRouter, usePathname } from "next/navigation";
 import Logo from "@/assets/logo";
 
-export default function Home() {
-  const [isClicked, setIsClicked] = useState<string | null>(null);
+const menu = [
+  { id: 1, label: "홈", path: "/home" },
+  { id: 2, label: "학교소개", path: "/introduce" },
+  { id: 3, label: "학교소식", path: "/post" },
+];
+
+function Header() {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [isDarkMode, setIsDarkMode] = useState(pathname === "/introduce");
 
   useEffect(() => {
-    const savedClicked = sessionStorage.getItem("clicked");
-    if (savedClicked) {
-      setIsClicked(savedClicked);
-    }
-  }, []);
+    setIsDarkMode(pathname === "/introduce"); //introduce 초기 렌더링 시 Dark 모드 적용
+  }, [pathname]);
 
-  const handleMenuClick = (menuName: string) => {
-    setIsClicked(menuName);
-    sessionStorage.setItem("clicked", menuName);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsDarkMode(window.scrollY <= 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  });
 
   return (
-    <>
-      <S.Container>
-        <Logo />
-        <S.RightBox>
-          <Link href="/home">
-            <S.Text
-              active={isClicked === "home"}
-              onClick={() => handleMenuClick("home")}
-            >
-              홈
-            </S.Text>
-          </Link>
-          <Link href="/Intro">
-            <S.Text
-              active={isClicked === "Intro"}
-              onClick={() => handleMenuClick("Intro")}
-            >
-              학교소개
-            </S.Text>
-          </Link>
-          <Link href="/News">
-            <S.Text
-              active={isClicked === "News"}
-              onClick={() => handleMenuClick("News")}
-            >
-              학교소식
-            </S.Text>
-          </Link>
-        </S.RightBox>
-      </S.Container>
-    </>
+    <S.Container isDarkMode={isDarkMode}>
+      <Logo />
+      <S.RightBox>
+        {menu.map((item) => (
+          <S.Text
+            isDarkMode={isDarkMode}
+            key={item.id}
+            onClick={() => router.push(item.path)}
+            style={{ fontWeight: item.path === pathname ? 700 : "normal" }}
+          >
+            {item.label}
+          </S.Text>
+        ))}
+      </S.RightBox>
+    </S.Container>
   );
 }
+
+export default Header;
