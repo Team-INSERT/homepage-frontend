@@ -7,8 +7,6 @@ interface FooterProps {
   color: string;
 }
 
-// eslint-disable-next-line react/prop-types
-
 const Footer = ({ color }: FooterProps) => {
   const { serviceInfo, policy, copyRight } = {
     serviceInfo: "46708 부산 강서구 가락대로 1393 (봉림동 15)",
@@ -20,8 +18,8 @@ const Footer = ({ color }: FooterProps) => {
     <S.Container color={color}>
       <BsmLogo />
       <S.Info>
-        <div>{serviceInfo}</div>
-        <div>{policy}</div>
+        <p>{serviceInfo}</p>
+        <p>{policy}</p>
       </S.Info>
       <S.Line />
       <S.CopyInfo>{copyRight}</S.CopyInfo>
