@@ -1,7 +1,7 @@
 import { flex, font, theme } from "@/styles";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div<{ color: string }>`
   width: 100%;
   ${flex.COLUMN_FLEX}
   ${font.Caption}
