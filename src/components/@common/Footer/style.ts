@@ -1,15 +1,21 @@
 import { flex, font, theme } from "@/styles";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div<{ color: string }>`
   width: 100%;
   ${flex.COLUMN_FLEX}
   ${font.Caption}
-  background-color: ${(props) =>
-    props.color === "black" ? `${theme.grey900}` : `${theme.grey100}`};
-  color: ${(props) =>
-    props.color === "black" ? `${theme.grey100}` : `${theme.grey900}`};
   padding: 38px 140px 27px 140px;
+  ${({ color }) =>
+    color === "black"
+      ? css`
+          background-color: ${theme.grey900};
+          color: ${theme.grey100};
+        `
+      : css`
+          background-color: ${theme.grey100};
+          color: ${theme.grey900};
+        `};
 `;
 
 export const Info = styled.p`
