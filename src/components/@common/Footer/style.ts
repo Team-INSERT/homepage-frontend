@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  ${flex.FLEX}
   ${flex.COLUMN_FLEX}
   ${font.Caption}
   background-color: ${(props) =>
@@ -16,7 +15,6 @@ export const Container = styled.div`
 export const Info = styled.p`
   padding: 32px 0 55px 0;
   gap: 4px;
-  ${flex.FLEX}
   ${flex.COLUMN_FLEX}
 `;
 
