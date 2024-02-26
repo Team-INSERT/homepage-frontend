@@ -36,3 +36,13 @@ export const Text = styled.p<HeaderProps>`
       color: ${theme.white};
     `}
 `;
+
+export const LoginText = styled.p`
+  color: ${theme.grey900};
+  ${font.Text};
+`;
+
+export const Logout = styled.p`
+  color: ${theme.bssmBlue};
+  ${font.Caption}
+`;
