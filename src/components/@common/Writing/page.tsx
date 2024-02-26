@@ -9,12 +9,11 @@ import { useState } from "react";
 import * as S from "./style";
 import Button from "../Button";
 
-// 오브젝트로 category,title,writer,date,content 전달받음
-type WriteModeProps = {
-  info: { [key: string]: string };
+type WriteProps = "category" | "title" | "writer" | "date" | "content";
+interface WriteModeProps {
+  info: { [key in WriteProps]: string };
   mode: "READ";
-};
-
+}
 type ReadModeProps = {
   mode: "WRITE";
 };
