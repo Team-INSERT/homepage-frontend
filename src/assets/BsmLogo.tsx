@@ -1,4 +1,4 @@
-export default function BsmLogo() {
+const BsmLogo = () => {
   return (
     <svg
       width="210"
@@ -257,4 +257,6 @@ export default function BsmLogo() {
       />
     </svg>
   );
-}
+};
+
+export default BsmLogo;
