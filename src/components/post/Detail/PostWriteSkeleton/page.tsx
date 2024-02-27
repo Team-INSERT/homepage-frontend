@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import DownArrow from "@/assets/DownArrow";
 import UpArrow from "@/assets/UpArrow";
 import Line from "@/assets/Line";
@@ -16,18 +16,16 @@ const PostWriteSkeleton = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
   const dropDownClick = (text: string) => {
     setCategory(text);
     setIsDropDown(false);
   };
   const changeTextareaHeight = () => {
-    const textarea = document.querySelector("textarea");
-    if (textarea) {
-      textarea.addEventListener("input", () => {
-        textarea.style.height = "auto";
-        textarea.style.height = `${textarea.scrollHeight}px`;
-      });
-    }
+    if (!textareaRef.current) return;
+    textareaRef.current.style.height = "auto";
+    textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
   };
   return (
     <S.Display>
@@ -57,6 +55,7 @@ const PostWriteSkeleton = () => {
       </S.Head>
       <S.Bottom>
         <S.Content
+          ref={textareaRef}
           placeholder="글을 입력해주세요"
           onInput={changeTextareaHeight}
           onChange={(e) => setContent(e.target.value)}
