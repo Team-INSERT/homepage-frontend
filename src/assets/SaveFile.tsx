@@ -1,4 +1,4 @@
-export default function SaveFile() {
+const SaveFile = () => {
   return (
     <svg
       width="16"
@@ -33,4 +33,6 @@ export default function SaveFile() {
       </g>
     </svg>
   );
-}
+};
+
+export default SaveFile;

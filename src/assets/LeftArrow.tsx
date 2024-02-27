@@ -1,4 +1,4 @@
-export default function LeftArrow() {
+const LeftArrow = () => {
   return (
     <svg
       width="20"
@@ -20,4 +20,6 @@ export default function LeftArrow() {
       </g>
     </svg>
   );
-}
+};
+
+export default LeftArrow;

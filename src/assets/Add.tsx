@@ -1,4 +1,4 @@
-export default function Add() {
+const Add = () => {
   return (
     <svg
       width="24px"
@@ -25,4 +25,6 @@ export default function Add() {
       </g>
     </svg>
   );
-}
+};
+
+export default Add;

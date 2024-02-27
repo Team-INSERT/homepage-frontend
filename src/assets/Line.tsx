@@ -1,4 +1,4 @@
-export default function Line() {
+const Line = () => {
   return (
     <svg
       width="616"
@@ -10,4 +10,6 @@ export default function Line() {
       <path d="M0 1L616 1.00005" stroke="#D9D9D9" />
     </svg>
   );
-}
+};
+
+export default Line;

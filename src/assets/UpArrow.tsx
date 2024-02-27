@@ -1,4 +1,4 @@
-export default function UpArrow() {
+const UpArrow = () => {
   return (
     <svg
       width="16"
@@ -16,4 +16,6 @@ export default function UpArrow() {
       </g>
     </svg>
   );
-}
+};
+
+export default UpArrow;
