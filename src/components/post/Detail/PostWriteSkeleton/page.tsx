@@ -1,11 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
-import DownArrow from "@/assets/DownArrow";
-import UpArrow from "@/assets/UpArrow";
 import Line from "@/assets/Line";
 import Add from "@/assets/Add";
 import Button from "@/components/@common/Button";
+import Arrow from "@/assets/Arrow";
 
 import * as S from "./style";
 
@@ -33,7 +32,11 @@ const PostWriteSkeleton = () => {
         <S.CategoryLayout>
           <S.Category>{category}</S.Category>
           <S.ArrowLayout onClick={() => setIsDropDown(!isDropDown)}>
-            {isDropDown ? <DownArrow /> : <UpArrow />}
+            {isDropDown ? (
+              <Arrow width="16px" height="16px" rotate="180" />
+            ) : (
+              <Arrow width="16px" height="16px" />
+            )}
           </S.ArrowLayout>
         </S.CategoryLayout>
         <S.DropDown>

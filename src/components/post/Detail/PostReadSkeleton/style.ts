@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { flex, font, theme } from "@/styles";
 import SaveFile from "@/assets/SaveFile";
-import LArrow from "@/assets/LeftArrow";
 import Button from "../../../@common/Button";
 
 export const Display = styled.div`
@@ -66,10 +65,6 @@ export const QuickView = styled.a`
   color: ${theme.bssmBlue};
   ${font.Caption}
   cursor: pointer;
-`;
-export const LeftArrow = styled(LArrow)`
-  width: 20px;
-  height: 20px;
 `;
 export const BackToList = styled(Button)`
   ${flex.CENTER}
