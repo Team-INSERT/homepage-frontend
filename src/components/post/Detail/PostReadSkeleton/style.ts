@@ -5,12 +5,10 @@ import LArrow from "@/assets/LeftArrow";
 import Button from "../../../@common/Button";
 
 export const Display = styled.div`
-  display: flex;
   width: 664px;
   height: auto;
   padding: 60px 24px 80px 24px;
-  flex-direction: column;
-  justify-content: center;
+  ${flex.COLUMN_HORIZONTAL}
   align-items: flex-start;
   border-radius: 24px;
 `;

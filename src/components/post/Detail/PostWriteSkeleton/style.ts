@@ -1,33 +1,26 @@
-import { font } from "@/styles";
+import { flex, font, theme } from "@/styles";
 import styled from "styled-components";
 
 export const Display = styled.div`
-  display: flex;
+  ${flex.COLUMN_CENTER}
   width: 664px;
   padding: 60px 24px 40px 24px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 export const Head = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flex.COLUMN_FLEX}
   align-items: flex-start;
   gap: 16px;
 `;
 export const CategoryLayout = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flex.CENTER}
   gap: 4px;
 `;
 export const Category = styled.p`
-  color: var(--primary-bssm-blue, #007cff);
+  color: ${theme.bssmBlue};
   ${font.Text}
 `;
 export const ArrowLayout = styled.div`
-  display: flex;
-  align-items: center;
+  ${flex.VERTICAL}
   cursor: pointer;
 `;
 export const Title = styled.input`
@@ -35,18 +28,16 @@ export const Title = styled.input`
   ${font.Title}
 
   &::placeholder {
-    color: var(--grey-200, #d9d9d9);
+    color: ${theme.grey200};
   }
 `;
 export const DropDown = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flex.COLUMN_FLEX}
 `;
 export const DropDownItem = styled.div`
   width: 76px;
-  display: flex;
   padding: 6px 0 6px 8px;
-  align-items: center;
+  ${flex.VERTICAL}
   ${font.Caption}
   cursor: default;
 
@@ -54,7 +45,7 @@ export const DropDownItem = styled.div`
     border-radius: 4px 4px 0px 0px;
   }
   &:hover {
-    background: var(--grey-100, #f2f2f2);
+    background: ${theme.grey100};
   }
 `;
 export const Content = styled.textarea`
@@ -68,27 +59,22 @@ export const Content = styled.textarea`
   }
 `;
 export const AddFile = styled.button`
-  display: flex;
+  ${flex.CENTER}
   padding: 4px 16px 4px 12px;
-  justify-content: center;
-  align-items: center;
   gap: 4px;
   border-radius: 999px;
-  border: 1px solid var(--primary-bssm-blue, #007cff);
+  border: 1px solid ${theme.bssmBlue};
 `;
 export const AddText = styled.p`
-  color: var(--primary-bssm-blue, #007cff);
+  color: ${theme.bssmBlue};
   ${font.Caption}
 `;
 export const FixEnd = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  ${flex.END}
   width: 100%;
 `;
 export const Bottom = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${flex.COLUMN_VERTICAL}
   gap: 64px;
 `;
