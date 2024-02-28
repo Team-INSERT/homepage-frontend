@@ -4,24 +4,32 @@ import Line from "@/assets/Line";
 
 import * as S from "./style";
 
-type ReadProps = "category" | "title" | "writer" | "date" | "content";
-interface ReadModeProps {
-  info: { [key in ReadProps]: string };
+interface PostReadSkeletonProps {
+  category: string;
+  title: string;
+  writer: string;
+  date: string;
+  content: string;
 }
 
-const PostReadSkeleton = ({ data }: { data: ReadModeProps }) => {
-  const { info } = data;
+const PostReadSkeleton = ({
+  category,
+  title,
+  writer,
+  date,
+  content,
+}: PostReadSkeletonProps) => {
   return (
     <S.Display>
       <S.Head>
         <S.CatTitle>
-          <S.Category>{info.category}</S.Category>
-          <S.Title>{info.title}</S.Title>
+          <S.Category>{category}</S.Category>
+          <S.Title>{title}</S.Title>
         </S.CatTitle>
-        {info.writer} | {info.date}
+        {writer} | {date}
         <Line />
       </S.Head>
-      <S.Content>{info.content}</S.Content>
+      <S.Content>{content}</S.Content>
       <S.FileLayout>
         <S.FileName>
           <S.FileImg />
