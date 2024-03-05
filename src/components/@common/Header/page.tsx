@@ -16,18 +16,22 @@ function Header() {
   const pathname = usePathname();
 
   const [isDarkMode, setIsDarkMode] = useState(pathname === "/introduce");
-  const [isLogined, setIsLogined] = useState(true); // 로그인 구현 시 변경 예정
+  const [isLogined, setIsLogined] = useState(false); // 로그인 구현 시 변경 예정
 
   useEffect(() => {
-    setIsDarkMode(pathname === "/introduce");
-  }, [pathname]);
-
-  useEffect(() => {
+    window.scrollTo(0, 0);
     const handleScroll = () => {
       setIsDarkMode(window.scrollY <= 100);
     };
     window.addEventListener("scroll", handleScroll);
-  });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    setIsDarkMode(pathname === "/introduce");
+  }, [pathname]);
 
   return (
     <S.Container isDarkMode={isDarkMode}>
