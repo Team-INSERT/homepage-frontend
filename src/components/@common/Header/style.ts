@@ -1,11 +1,7 @@
 import styled, { css } from "styled-components";
 import { font, theme, flex } from "@/styles";
 
-interface HeaderProps {
-  isDarkMode: boolean;
-}
-
-export const Container = styled.div<HeaderProps>`
+export const Container = styled.div<{ isDarkMode: boolean }>`
   ${flex.BETWEEN};
   background-color: ${theme.white};
   width: 100%;
@@ -25,7 +21,7 @@ export const RightBox = styled.div`
   cursor: pointer;
 `;
 
-export const Text = styled.p<HeaderProps>`
+export const Text = styled.p<{ isDarkMode: boolean }>`
   color: ${theme.grey900};
   ${font.Text};
 
