@@ -1,3 +1,5 @@
+import { theme } from "@/styles";
+
 interface ArrowProps {
   width?: string;
   height?: string;
@@ -6,10 +8,10 @@ interface ArrowProps {
 }
 
 const Arrow = ({
-  width = "20px",
-  height = "20px",
-  rotate = "0%",
-  fill = "#000000",
+  width = "20",
+  height = "20",
+  rotate = "0",
+  fill = `${theme.grey400}`,
 }: ArrowProps) => {
   return (
     <svg
