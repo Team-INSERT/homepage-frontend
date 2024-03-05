@@ -5,7 +5,12 @@ interface ArrowProps {
   fill?: string;
 }
 
-const Arrow = ({ width, height, rotate, fill }: ArrowProps) => {
+const Arrow = ({
+  width = "20px",
+  height = "20px",
+  rotate = "0%",
+  fill = "#000000",
+}: ArrowProps) => {
   return (
     <svg
       width={width}
