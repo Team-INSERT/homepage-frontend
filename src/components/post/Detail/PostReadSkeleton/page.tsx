@@ -40,7 +40,7 @@ const PostReadSkeleton = ({
         <S.QuickView>[바로보기]</S.QuickView>
       </S.FileLayout>
       <S.BackToList mode="GLOW" radius={8}>
-        <Arrow width="20px" height="20px" rotate="270" fill={theme.bssmBlue} />
+        <Arrow width="20" height="20" rotate="270" fill={theme.bssmBlue} />
         목록으로 돌아가기
       </S.BackToList>
     </S.Display>

@@ -33,9 +33,9 @@ const PostWriteSkeleton = () => {
           <S.Category>{category}</S.Category>
           <S.ArrowLayout onClick={() => setIsDropDown(!isDropDown)}>
             {isDropDown ? (
-              <Arrow width="16px" height="16px" rotate="180" />
+              <Arrow width="16" height="16" rotate="180" />
             ) : (
-              <Arrow width="16px" height="16px" />
+              <Arrow width="16" height="16" />
             )}
           </S.ArrowLayout>
         </S.CategoryLayout>
