@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import { useRouter, usePathname } from "next/navigation";
-import Logo from "@/assets/logo";
+import Logo from "@/assets/Logo";
 
 const menu = [
   { id: 1, label: "홈", path: "/home" },
