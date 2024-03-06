@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+
   :root {
     @media screen and (min-width: 1026px) and (max-width: 1440px) {
       font-size: 90%;
@@ -79,6 +80,15 @@ const GlobalStyle = createGlobalStyle`
     background: none;
     padding: 0;
     cursor: pointer;
+  }
+
+    .swiper-wrapper {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .swiper {
+    margin: 0;
   }
 `;
 
