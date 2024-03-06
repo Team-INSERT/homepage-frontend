@@ -3,7 +3,7 @@
 import styled, { RuleSet, css } from "styled-components";
 import { theme } from "@/styles";
 
-type ButtonMode = "BLUE" | "NO_GLOW" | "GLOW" | "WHITE";
+type ButtonMode = "BLUE" | "NO_GLOW" | "BLUE_GLOW" | "RED_GLOW" | "WHITE";
 type RadiusMode = number | "MAX";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -25,11 +25,17 @@ const ButtonType = (mode: ButtonMode): RuleSet<object> => {
         border: none;
         color: ${theme.grey400};
       `;
-    case "GLOW":
+    case "BLUE_GLOW":
       return css`
         background-color: transparent;
         border: 2px solid ${theme.bssmBlue};
         color: ${theme.bssmBlue};
+      `;
+    case "RED_GLOW":
+      return css`
+        background-color: transparent;
+        border: 2px solid ${theme.red};
+        color: ${theme.red};
       `;
     case "NO_GLOW":
       return css`
