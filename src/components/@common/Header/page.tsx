@@ -6,9 +6,9 @@ import Logo from "@/assets/logo";
 import * as S from "./style";
 
 const menu = [
-  { id: 1, label: "홈", path: "/home" },
-  { id: 2, label: "학교소개", path: "/introduce" },
-  { id: 3, label: "학교소식", path: "/post" },
+  { label: "홈", path: "/home" },
+  { label: "학교소개", path: "/introduce" },
+  { label: "학교소식", path: "/post" },
 ];
 
 function Header() {
@@ -45,10 +45,10 @@ function Header() {
             <S.Logout>로그아웃</S.Logout>
           </>
         ) : (
-          menu.map((item) => (
+          menu.map((item, index) => (
             <S.Text
               isDarkMode={isDarkMode}
-              key={item.id}
+              key={index}
               onClick={() => router.push(item.path)}
               style={{ fontWeight: item.path === pathname ? 700 : "normal" }}
             >
