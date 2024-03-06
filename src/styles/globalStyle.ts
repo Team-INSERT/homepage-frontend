@@ -82,7 +82,7 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
-    .swiper-wrapper {
+  .swiper-wrapper {
     width: 100%;
     height: 100vh;
   }

@@ -4,15 +4,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel } from "swiper/modules";
 import "swiper/css";
 import Arrow from "@/assets/Arrow";
+import Exclude from "@/assets/Exclude";
+import Spike from "@/assets/Spike";
+import SharpArrow from "@/assets/SharpArrow";
+import Cloba from "@/assets/Cloba";
 import { theme } from "@/styles";
 import * as S from "./style";
 
 export default function Home() {
   const pages = [
-    { main: "Communication", sub: "소통" },
-    { main: "Consideration", sub: "배려" },
-    { main: "Cooperation", sub: "협업" },
-    { main: "Creativity", sub: "창의성" },
+    { main: "Communication", sub: "소통", icon: <Exclude /> },
+    { main: "Consideration", sub: "배려", icon: <Spike /> },
+    { main: "Cooperation", sub: "협업", icon: <SharpArrow /> },
+    { main: "Creativity", sub: "창의성", icon: <Cloba /> },
   ];
   return (
     <S.Layout>
@@ -22,7 +26,7 @@ export default function Home() {
         mousewheel
         direction="vertical"
         speed={1000}
-        touchRatio={0}
+        touchRatio={1}
       >
         <SwiperSlide>
           <S.Main>
@@ -39,6 +43,7 @@ export default function Home() {
               <S.BigContent>{item.main}</S.BigContent>
               <S.SmallContent>{item.sub}</S.SmallContent>
             </S.Center>
+            <S.HomeIcon index={index}>{item.icon}</S.HomeIcon>
           </SwiperSlide>
         ))}
       </Swiper>

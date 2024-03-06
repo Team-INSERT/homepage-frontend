@@ -41,3 +41,10 @@ export const SmallContent = styled.p`
   ${font.Title}
   color: ${theme.grey900};
 `;
+const translateY = ["-47%", "-75%", "-90%", "-60%"];
+export const HomeIcon = styled.div<{ index: number }>`
+  position: absolute;
+  bottom: 0;
+  ${({ index }) => (index % 2 === 0 ? "right: 0;" : "left: 0;")}
+  ${({ index }) => `top: 50%; transform: translateY(${translateY[index]});`}
+`;
