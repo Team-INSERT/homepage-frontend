@@ -1,7 +1,7 @@
 "use client";
 
+import MaruLogo from "@/assets/Marulogo";
 import * as S from "./style";
-import Marulogo from "@/assets/Marulogo";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
           <S.Text>입학,</S.Text>
           <S.Text>maru에서 간편하게</S.Text>
         </S.TextBox>
-        <Marulogo />
+        <MaruLogo />
       </S.Container>
     </>
   );
