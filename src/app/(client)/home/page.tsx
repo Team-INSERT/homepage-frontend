@@ -1,3 +1,5 @@
+import SchoolIntroduce from "../introduce/page";
+
 export default function Home() {
-  return <></>;
+  return <SchoolIntroduce />;
 }
