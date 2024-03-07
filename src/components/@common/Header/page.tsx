@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import * as S from "./style";
 import { useRouter, usePathname } from "next/navigation";
 import Logo from "@/assets/Logo";
+import * as S from "./style";
 
 const menu = [
   { id: 1, label: "홈", path: "/home" },
