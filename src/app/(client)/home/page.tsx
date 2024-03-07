@@ -1,13 +1,14 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper/modules";
+import { Autoplay, HashNavigation, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import Arrow from "@/assets/Arrow";
 import Exclude from "@/assets/Exclude";
 import Spike from "@/assets/Spike";
 import SharpArrow from "@/assets/SharpArrow";
 import Cloba from "@/assets/Cloba";
+import NLogo from "@/assets/NLogo";
 import { theme } from "@/styles";
 import * as S from "./style";
 
@@ -18,17 +19,22 @@ export default function Home() {
     { main: "Cooperation", sub: "협업", icon: <SharpArrow /> },
     { main: "Creativity", sub: "창의성", icon: <Cloba /> },
   ];
+
   return (
     <S.Layout>
       <Swiper
+        className="big-swiper"
         slidesPerView={1}
-        modules={[Mousewheel]}
+        modules={[Mousewheel, HashNavigation]}
         mousewheel
         direction="vertical"
         speed={1000}
         touchRatio={1}
+        hashNavigation={{
+          watchState: true,
+        }}
       >
-        <SwiperSlide>
+        <SwiperSlide data-hash="slide1">
           <S.Main>
             <S.MainTitle>4C로 하나되는 우리</S.MainTitle>
             <S.DownGuide>
@@ -38,7 +44,7 @@ export default function Home() {
           </S.Main>
         </SwiperSlide>
         {pages.map((item, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} data-hash={item.main}>
             <S.Center>
               <S.BigContent>{item.main}</S.BigContent>
               <S.SmallContent>{item.sub}</S.SmallContent>
@@ -46,6 +52,59 @@ export default function Home() {
             <S.HomeIcon index={index}>{item.icon}</S.HomeIcon>
           </SwiperSlide>
         ))}
+        <SwiperSlide data-hash="pictures">
+          <S.Center>
+            <S.BannerLayout>
+              <S.Mou />
+              <S.Sw />
+              <S.ImgBanner />
+              <S.Code />
+              <S.Shape />
+              <S.Bssm />
+              <S.Company />
+              <S.Ed />
+            </S.BannerLayout>
+          </S.Center>
+        </SwiperSlide>
+        <SwiperSlide data-hash="homePost">
+          <S.PostLayout>
+            <S.NLogoLayout>
+              <NLogo />
+            </S.NLogoLayout>
+            <Swiper
+              slidesPerView={1}
+              modules={[HashNavigation, Autoplay]}
+              speed={600}
+              touchRatio={1}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              hashNavigation={{
+                watchState: true,
+              }}
+            >
+              <SwiperSlide>
+                <S.TextBox>
+                  <S.PostTitle>공지사항</S.PostTitle>
+                  <S.PostContent>
+                    공지사항 공지사항 공지사항 공지사항 공지사항 공지사항
+                    공지사항 공지사항 공지사항 공지사항 공지사항
+                  </S.PostContent>
+                </S.TextBox>
+              </SwiperSlide>
+              <SwiperSlide>
+                <S.TextBox>
+                  <S.PostTitle>공지사항</S.PostTitle>
+                  <S.PostContent>
+                    공지사항 공지사항 공지사항 공지사항 공지사항 공지사항
+                    공지사항 공지사항 공지사항 공지사항 공지사항
+                  </S.PostContent>
+                </S.TextBox>
+              </SwiperSlide>
+            </Swiper>
+          </S.PostLayout>
+        </SwiperSlide>
       </Swiper>
     </S.Layout>
   );
