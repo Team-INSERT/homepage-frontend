@@ -1,7 +1,7 @@
 "use client";
 
-import * as S from "./style";
 import Marulogo from "@/assets/Marulogo";
+import * as S from "./style";
 
 export default function Home() {
   return (

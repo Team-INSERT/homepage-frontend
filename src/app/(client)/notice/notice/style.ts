@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import Button from "@/components/@common/Button";
-import { font, theme, flex } from "@/styles";
+import styled from "styled-components";0
+import { font, flex } from "@/styles";
 
 export const Container = styled.div`
   ${flex.FLEX};

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ReactQueryProvider, StyledComponentsProvider } from "@/provider";
+import Header from "@/components/@common/Header/page";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,6 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header />
+
         <ReactQueryProvider>
           <StyledComponentsProvider>{children}</StyledComponentsProvider>
         </ReactQueryProvider>

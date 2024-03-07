@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import * as S from "./style";
+
 import Notice from "@/app/(client)/notice/notice/page";
 import Paper from "@/app/(client)/notice/paper/page";
 import Event from "@/app/(client)/notice/eventphoto/page";
+import * as S from "./style";
 
 const Category = () => {
   const nav = [

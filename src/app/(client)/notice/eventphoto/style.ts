@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { font, theme, flex } from "@/styles";
+import { font, flex } from "@/styles";
 
 export const Container = styled.div`
   ${flex.FLEX};
