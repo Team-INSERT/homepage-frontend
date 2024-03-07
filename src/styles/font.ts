@@ -5,6 +5,9 @@ const fontGenerator = (weight: number, size: number, lineHeight: number) => `
     `;
 
 const font = {
+  ExtraBigTitle: fontGenerator(900, 4, 110),
+  BigTitle3: fontGenerator(900, 3.75, 110),
+  BigTitle2: fontGenerator(700, 2.5, 130),
   BigTitle: fontGenerator(700, 1.5, 110),
   Title: fontGenerator(700, 1.25, 130),
   SmallTitle: fontGenerator(700, 1.125, 130),

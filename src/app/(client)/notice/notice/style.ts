@@ -1,4 +1,4 @@
-import styled from "styled-components";0
+import styled from "styled-components";
 import { font, flex } from "@/styles";
 
 export const Container = styled.div`
