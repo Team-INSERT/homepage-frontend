@@ -5,7 +5,6 @@ export const PostLayout = styled.div`
   z-index: 2;
   width: 50%;
   height: 130px;
-  margin-top: 65px;
   ${flex.COLUMN_CENTER}
   position: relative;
   left: 50%;

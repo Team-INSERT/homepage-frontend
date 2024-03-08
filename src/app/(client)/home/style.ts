@@ -108,3 +108,20 @@ export const Bs = styled.div`
   border-radius: 16px;
   background-color: ${theme.bssmBlue};
 `;
+export const Elements = styled.div`
+  height: auto;
+  ${flex.COLUMN_FLEX}
+  margin-top: 65px;
+  gap: 151px;
+`;
+export const HomeLettersLayout = styled.div`
+  width: 100%;
+  height: auto;
+  ${flex.COLUMN_START}
+  gap: 16px;
+`;
+export const LetterTitle = styled.p`
+  width: 50%;
+  color: ${theme.grey900};
+  ${font.BigText}
+`;

@@ -69,7 +69,12 @@ export default function Home() {
           </S.Center>
         </SwiperSlide>
         <SwiperSlide data-hash="homePost">
-          <Notice />
+          <S.Elements>
+            <Notice />
+            <S.HomeLettersLayout>
+              <S.LetterTitle>가정통신문</S.LetterTitle>
+            </S.HomeLettersLayout>
+          </S.Elements>
         </SwiperSlide>
       </Swiper>
     </S.Layout>
