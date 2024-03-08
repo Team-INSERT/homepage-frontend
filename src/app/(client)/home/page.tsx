@@ -73,6 +73,11 @@ export default function Home() {
             <Notice />
             <S.HomeLettersLayout>
               <S.LetterTitle>가정통신문</S.LetterTitle>
+              <S.LettersLayout>
+                <S.Letter>아아아</S.Letter>
+                <S.Letter>아아아</S.Letter>
+                <S.Letter>아아아</S.Letter>
+              </S.LettersLayout>
             </S.HomeLettersLayout>
           </S.Elements>
         </SwiperSlide>

@@ -1,5 +1,5 @@
 import NLogo from "@/assets/NLogo";
-import { Autoplay, HashNavigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
 import { useEffect } from "react";
@@ -26,7 +26,7 @@ const Notice = () => {
         <S.PostTitle>공지사항</S.PostTitle>
         <Swiper
           slidesPerView={1}
-          modules={[HashNavigation, Autoplay, Pagination]}
+          modules={[Autoplay, Pagination]}
           speed={600}
           touchRatio={1}
           autoplay={{
@@ -36,9 +36,6 @@ const Notice = () => {
           loop
           pagination={{
             clickable: true,
-          }}
-          hashNavigation={{
-            watchState: true,
           }}
         >
           <SwiperSlide>

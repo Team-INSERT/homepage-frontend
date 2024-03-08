@@ -116,7 +116,6 @@ export const Elements = styled.div`
 `;
 export const HomeLettersLayout = styled.div`
   width: 100%;
-  height: auto;
   ${flex.COLUMN_START}
   gap: 16px;
 `;
@@ -124,4 +123,13 @@ export const LetterTitle = styled.p`
   width: 50%;
   color: ${theme.grey900};
   ${font.BigText}
+`;
+export const LettersLayout = styled.div`
+  ${flex.BETWEEN}
+  gap: 24px;
+`;
+export const Letter = styled.div`
+  padding: 27px 17px 22px 15px;
+  background-color: ${theme.grey100};
+  border-radius: 16px;
 `;
