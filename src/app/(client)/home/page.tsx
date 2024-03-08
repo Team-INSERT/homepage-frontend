@@ -72,11 +72,38 @@ export default function Home() {
           <S.Elements>
             <Notice />
             <S.HomeLettersLayout>
-              <S.LetterTitle>가정통신문</S.LetterTitle>
+              <S.LettersTitle>가정통신문</S.LettersTitle>
               <S.LettersLayout>
-                <S.Letter>아아아</S.Letter>
-                <S.Letter>아아아</S.Letter>
-                <S.Letter>아아아</S.Letter>
+                <S.Letter>
+                  <S.LetterTextLayout>
+                    <S.LetterTitle>가정 통신문 제목 가정 통신</S.LetterTitle>
+                    <S.LetterContent>
+                      가정통신문 내용 가정통신문 내용 가정통신문 내용 가정통신문
+                      내용 가정통신문 내용 가정통신문
+                    </S.LetterContent>
+                  </S.LetterTextLayout>
+                  <S.Date>2024.01.01</S.Date>
+                </S.Letter>
+                <S.Letter>
+                  <S.LetterTextLayout>
+                    <S.LetterTitle>가정 통신문 제목 가정 통신</S.LetterTitle>
+                    <S.LetterContent>
+                      가정통신문 내용 가정통신문 내용 가정통신문 내용 가정통신문
+                      내용 가정통신문 내용 가정통신문
+                    </S.LetterContent>
+                  </S.LetterTextLayout>
+                  <S.Date>2024.01.01</S.Date>
+                </S.Letter>
+                <S.Letter>
+                  <S.LetterTextLayout>
+                    <S.LetterTitle>가정 통신문 제목 가정 통신</S.LetterTitle>
+                    <S.LetterContent>
+                      가정통신문 내용 가정통신문 내용 가정통신문 내용 가정통신문
+                      내용 가정통신문 내용 가정통신문
+                    </S.LetterContent>
+                  </S.LetterTextLayout>
+                  <S.Date>2024.01.01</S.Date>
+                </S.Letter>
               </S.LettersLayout>
             </S.HomeLettersLayout>
           </S.Elements>
