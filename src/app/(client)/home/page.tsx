@@ -13,6 +13,7 @@ import Cloba from "@/assets/Cloba";
 import { theme } from "@/styles";
 import * as S from "./style";
 import Notice from "./_components/Notice/Notice";
+import Letter from "./_components/Letter/Letter";
 
 export default function Home() {
   const pages = [
@@ -74,39 +75,15 @@ export default function Home() {
             <S.HomeLettersLayout>
               <S.LettersTitle>가정통신문</S.LettersTitle>
               <S.LettersLayout>
-                <S.Letter>
-                  <S.LetterTextLayout>
-                    <S.LetterTitle>가정 통신문 제목 가정 통신</S.LetterTitle>
-                    <S.LetterContent>
-                      가정통신문 내용 가정통신문 내용 가정통신문 내용 가정통신문
-                      내용 가정통신문 내용 가정통신문
-                    </S.LetterContent>
-                  </S.LetterTextLayout>
-                  <S.Date>2024.01.01</S.Date>
-                </S.Letter>
-                <S.Letter>
-                  <S.LetterTextLayout>
-                    <S.LetterTitle>가정 통신문 제목 가정 통신</S.LetterTitle>
-                    <S.LetterContent>
-                      가정통신문 내용 가정통신문 내용 가정통신문 내용 가정통신문
-                      내용 가정통신문 내용 가정통신문
-                    </S.LetterContent>
-                  </S.LetterTextLayout>
-                  <S.Date>2024.01.01</S.Date>
-                </S.Letter>
-                <S.Letter>
-                  <S.LetterTextLayout>
-                    <S.LetterTitle>가정 통신문 제목 가정 통신</S.LetterTitle>
-                    <S.LetterContent>
-                      가정통신문 내용 가정통신문 내용 가정통신문 내용 가정통신문
-                      내용 가정통신문 내용 가정통신문
-                    </S.LetterContent>
-                  </S.LetterTextLayout>
-                  <S.Date>2024.01.01</S.Date>
-                </S.Letter>
+                <Letter />
+                <Letter />
+                <Letter />
               </S.LettersLayout>
             </S.HomeLettersLayout>
           </S.Elements>
+        </SwiperSlide>
+        <SwiperSlide data-hash="galery">
+          <h1>마지막페이지</h1>
         </SwiperSlide>
       </Swiper>
     </S.Layout>
