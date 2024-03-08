@@ -6,9 +6,9 @@ import Logo from "@/assets/Logo";
 import * as S from "./style";
 
 const menu = [
-  { id: 1, label: "홈", path: "/home" },
-  { id: 2, label: "학교소개", path: "/introduce" },
-  { id: 3, label: "학교소식", path: "/post" },
+  { label: "홈", path: "/home" },
+  { label: "학교소개", path: "/introduce" },
+  { label: "학교소식", path: "/post" },
 ];
 
 function Header() {
@@ -18,11 +18,12 @@ function Header() {
   const [isDarkMode, setIsDarkMode] = useState(pathname === "/introduce");
   const [isLogined, setIsLogined] = useState(false); // 로그인 구현 시 변경 예정
 
+  const handleScroll = () => {
+    if (window.scrollY > 100) setIsDarkMode(false);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    const handleScroll = () => {
-      setIsDarkMode(window.scrollY <= 100);
-    };
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -44,10 +45,10 @@ function Header() {
             <S.Logout>로그아웃</S.Logout>
           </>
         ) : (
-          menu.map((item) => (
+          menu.map((item, index) => (
             <S.Text
               isDarkMode={isDarkMode}
-              key={item.id}
+              key={index}
               onClick={() => router.push(item.path)}
               style={{ fontWeight: item.path === pathname ? 700 : "normal" }}
             >

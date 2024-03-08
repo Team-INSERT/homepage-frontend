@@ -1,9 +1,9 @@
 "use client";
 
-import MaruLogo from "@/assets/Marulogo";
+import MaruLogo from "@/assets/MaruLogo";
 import * as S from "./style";
 
-export default function Home() {
+export default function Maru() {
   return (
     <>
       <S.Container>
