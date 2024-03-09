@@ -108,3 +108,68 @@ export const Bs = styled.div`
   border-radius: 16px;
   background-color: ${theme.bssmBlue};
 `;
+export const Elements = styled.div`
+  height: auto;
+  ${flex.COLUMN_FLEX}
+  margin-top: 115px;
+  gap: 121px;
+`;
+export const PostLayout = styled.div`
+  z-index: 2;
+  width: 50%;
+  height: 130px;
+  ${flex.COLUMN_CENTER}
+  position: relative;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  padding: 26px 0px 26px 16px;
+  background-color: ${theme.bssmBlue};
+  border-radius: 16px;
+
+  .swiper-pagination {
+    position: absolute;
+    left: 63%;
+    bottom: 15%;
+    transform: translateX(-50%);
+  }
+`;
+export const NLogoLayout = styled.div`
+  position: absolute;
+  right: 0;
+  z-index: 3;
+`;
+export const PostTitle = styled.p`
+  ${font.SmallText}
+  color: ${theme.grey100};
+`;
+export const SwiperLayout = styled.div`
+  position: absolute;
+  top: 26px;
+  left: 16px;
+  width: 75%;
+  height: 100%;
+`;
+export const BlueBlur = styled.div`
+  z-index: 3;
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(to right, transparent 0%, ${theme.bssmBlue} 100%);
+  position: absolute;
+  left: 58%;
+`;
+export const HomeLettersLayout = styled.div`
+  width: 100%;
+  ${flex.COLUMN_START}
+  gap: 16px;
+`;
+export const LettersTitle = styled.p`
+  width: 50%;
+  color: ${theme.grey900};
+  ${font.BigText}
+`;
+export const LettersLayout = styled.div`
+  ${flex.BETWEEN}
+  gap: 24px;
+  width: 50%;
+`;

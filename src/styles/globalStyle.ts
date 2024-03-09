@@ -87,8 +87,13 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
   }
 
+  .swiper-slide {
+    height: 100% !important;
+  }
+
   .swiper {
     margin: 0;
+    height: 100%;
   }
 `;
 

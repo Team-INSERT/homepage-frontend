@@ -1,18 +1,32 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { HashNavigation, Mousewheel } from "swiper/modules";
+import {
+  Autoplay,
+  HashNavigation,
+  Mousewheel,
+  Pagination,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
 import Arrow from "@/assets/Arrow";
 import Exclude from "@/assets/Exclude";
 import Spike from "@/assets/Spike";
 import SharpArrow from "@/assets/SharpArrow";
 import Cloba from "@/assets/Cloba";
 import { theme } from "@/styles";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import NLogo from "@/assets/NLogo";
 import * as S from "./style";
 import Notice from "./_components/Notice/Notice";
+import Letter from "./_components/Letter/Letter";
+import SchoolPic from "./_components/SchoolPic/SchoolPic";
+
+interface NoticeProp {
+  title: "";
+  id: "";
+}
 
 export default function Home() {
   const pages = [
@@ -22,12 +36,28 @@ export default function Home() {
     { main: "Creativity", sub: "창의성", icon: <Cloba /> },
   ];
 
-  // useEffect(() => {
-  //   const getNotice = () => {
-  //     const data = axios.get("{{local}}/post?category=EVENT&page=0&size=10");
-  //   };
-  //   getNotice();
-  // }, []);
+  const [newsLetter, setNewsLetter] = useState();
+  const [notice, setNotice] = useState<[]>();
+
+  useEffect(() => {
+    const getNotice = async () => {
+      const res = await axios.get(
+        "https://insert.anys34.com/post?category=NOTICE&page=0&size=10",
+      );
+      setNotice(res.data.content);
+    };
+    getNotice();
+  }, []);
+
+  useEffect(() => {
+    const getNewsLetter = async () => {
+      const res = await axios.get(
+        "https://insert.anys34.com/post?category=NEWS_LETTER&page=0&size=10",
+      );
+      setNewsLetter(res.data);
+    };
+    getNewsLetter();
+  }, []);
 
   return (
     <S.Layout>
@@ -76,7 +106,51 @@ export default function Home() {
           </S.Center>
         </SwiperSlide>
         <SwiperSlide data-hash="homePost">
-          <Notice />
+          <S.Elements>
+            <S.PostLayout>
+              <S.BlueBlur />
+              <S.NLogoLayout>
+                <NLogo />
+              </S.NLogoLayout>
+              <S.SwiperLayout>
+                <S.PostTitle>공지사항</S.PostTitle>
+                <Swiper
+                  slidesPerView={1}
+                  modules={[Autoplay, Pagination]}
+                  speed={600}
+                  touchRatio={1}
+                  autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                  }}
+                  loop
+                  pagination={{
+                    clickable: true,
+                  }}
+                >
+                  {notice?.map((item: NoticeProp) => (
+                    <SwiperSlide key={item.id}>
+                      <Notice title={item.title} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </S.SwiperLayout>
+            </S.PostLayout>
+            <S.HomeLettersLayout>
+              <S.LettersTitle>가정통신문</S.LettersTitle>
+              <S.LettersLayout>
+                <Letter />
+                <Letter />
+                <Letter />
+              </S.LettersLayout>
+            </S.HomeLettersLayout>
+          </S.Elements>
+        </SwiperSlide>
+        <SwiperSlide data-hash="galery">
+          <S.Center>
+            <SchoolPic />
+            <SchoolPic />
+          </S.Center>
         </SwiperSlide>
       </Swiper>
     </S.Layout>
