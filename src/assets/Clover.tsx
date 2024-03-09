@@ -1,4 +1,6 @@
-const Clover = () => {
+import { SVGProps } from "react";
+
+const Clover = ({ ...props }: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="186"
@@ -6,6 +8,7 @@ const Clover = () => {
       viewBox="0 0 186 186"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         id="Union"

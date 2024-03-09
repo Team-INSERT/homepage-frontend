@@ -85,7 +85,6 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100vh;
   }
-
   .swiper {
     margin: 0;
   }

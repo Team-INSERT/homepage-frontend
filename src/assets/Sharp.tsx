@@ -1,4 +1,6 @@
-const Sharp = () => {
+import { SVGProps } from "react";
+
+const Sharp = ({ ...props }: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="224"
@@ -6,6 +8,7 @@ const Sharp = () => {
       viewBox="0 0 224 214"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         id="Union"
