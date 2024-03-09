@@ -80,6 +80,15 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     cursor: pointer;
   }
+
+  .swiper-wrapper {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .swiper {
+    margin: 0;
+  }
 `;
 
 export default GlobalStyle;

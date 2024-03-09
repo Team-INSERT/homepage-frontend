@@ -7,6 +7,7 @@ export const Container = styled.div<{ isDarkMode: boolean }>`
   width: 100%;
   position: fixed;
   padding: 15px 140px 15px 140px;
+  z-index: 9999;
 
   ${(props) =>
     props.isDarkMode &&
