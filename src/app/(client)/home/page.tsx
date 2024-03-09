@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { HashNavigation, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
 import Arrow from "@/assets/Arrow";
 import Exclude from "@/assets/Exclude";
 import Spike from "@/assets/Spike";
@@ -14,6 +13,7 @@ import { theme } from "@/styles";
 import * as S from "./style";
 import Notice from "./_components/Notice/Notice";
 import Letter from "./_components/Letter/Letter";
+import SchoolPic from "./_components/SchoolPic/SchoolPic";
 
 export default function Home() {
   const pages = [
@@ -83,7 +83,7 @@ export default function Home() {
           </S.Elements>
         </SwiperSlide>
         <SwiperSlide data-hash="galery">
-          <h1>마지막페이지</h1>
+          <SchoolPic />
         </SwiperSlide>
       </Swiper>
     </S.Layout>
