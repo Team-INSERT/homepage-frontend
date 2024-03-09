@@ -12,7 +12,7 @@ export default function Home() {
         </S.Text>
         <S.GoogleLoginBox>
           <GoogleIcon />
-          로그인
+          Google로 로그인
         </S.GoogleLoginBox>
       </S.Container>
     </S.Background>

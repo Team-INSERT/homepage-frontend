@@ -13,7 +13,7 @@ export const Background = styled.div`
 export const Container = styled.main`
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(7.5px);
   gap: 32px;
   ${flex.COLUMN_CENTER}
 `;
