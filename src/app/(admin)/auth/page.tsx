@@ -5,9 +5,9 @@ import { useAuthLink } from "@/services/auth/useAuthService";
 import * as S from "./style";
 
 export default function Home() {
-  const { data, refetch } = useAuthLink();
+  const { data: authLink, refetch } = useAuthLink();
 
-  if (data) window.location.href = data;
+  if (authLink) window.location.href = authLink;
   return (
     <S.Background>
       <S.Container>
