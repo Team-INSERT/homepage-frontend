@@ -173,3 +173,10 @@ export const LettersLayout = styled.div`
   gap: 24px;
   width: 50%;
 `;
+export const SchoolPicLayout = styled.div`
+  margin-top: 63px;
+  display: flex;
+  column-gap: 24px;
+  flex-wrap: wrap;
+  max-width: 744px;
+`;

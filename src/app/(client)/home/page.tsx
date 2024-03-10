@@ -28,6 +28,12 @@ interface NoticeProp {
   id: "";
 }
 
+export interface LetterProp {
+  title: "";
+  contents: "";
+  createdDate: "";
+}
+
 export default function Home() {
   const pages = [
     { main: "Communication", sub: "소통", icon: <Exclude /> },
@@ -36,7 +42,7 @@ export default function Home() {
     { main: "Creativity", sub: "창의성", icon: <Cloba /> },
   ];
 
-  const [newsLetter, setNewsLetter] = useState();
+  const [newsLetter, setNewsLetter] = useState<[]>();
   const [notice, setNotice] = useState<[]>();
 
   useEffect(() => {
@@ -54,7 +60,8 @@ export default function Home() {
       const res = await axios.get(
         "https://insert.anys34.com/post?category=NEWS_LETTER&page=0&size=10",
       );
-      setNewsLetter(res.data);
+      setNewsLetter(res.data.content);
+      console.log(res.data.content);
     };
     getNewsLetter();
   }, []);
@@ -139,17 +146,28 @@ export default function Home() {
             <S.HomeLettersLayout>
               <S.LettersTitle>가정통신문</S.LettersTitle>
               <S.LettersLayout>
-                <Letter />
-                <Letter />
-                <Letter />
+                {newsLetter?.map((item: LetterProp, index) =>
+                  index < 3 ? (
+                    <Letter
+                      title={item.title}
+                      contents={item.contents}
+                      createdDate={item.createdDate}
+                      key={index}
+                    />
+                  ) : null,
+                )}
               </S.LettersLayout>
             </S.HomeLettersLayout>
           </S.Elements>
         </SwiperSlide>
         <SwiperSlide data-hash="galery">
           <S.Center>
-            <SchoolPic />
-            <SchoolPic />
+            <S.SchoolPicLayout>
+              <SchoolPic />
+              <SchoolPic />
+              <SchoolPic />
+              <SchoolPic />
+            </S.SchoolPicLayout>
           </S.Center>
         </SwiperSlide>
       </Swiper>

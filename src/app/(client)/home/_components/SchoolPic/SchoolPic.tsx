@@ -1,8 +1,8 @@
 import Export from "@/assets/Export";
 import { flex, font, theme } from "@/styles";
 import styled from "styled-components";
-import Sea from "@/assets/Sea.png";
 import Image from "next/image";
+import Sea from "@/assets/Sea.png";
 
 const SchoolPic = () => {
   return (
@@ -14,22 +14,23 @@ const SchoolPic = () => {
         <Title>사진 제목사진 제목사진 제목사진 제목사진 제목사진 제목제</Title>
         <Date>2024.01.01</Date>
       </TextLayout>
-      <Image src={Sea} alt="학교이미지" />
+      <SchoolImgLayout>
+        <Image src={Sea} alt="학교이미지" fill />
+      </SchoolImgLayout>
     </ElementLayout>
   );
 };
 
 const ElementLayout = styled.div`
   position: relative;
-  width: 360px;
-  height: 314px;
+  width: 296px;
   ${flex.COLUMN_FLEX}
-  gap: 40px;
+  gap: 24px;
 `;
 const TextLayout = styled.div`
   ${flex.COLUMN_HORIZONTAL}
   gap: 8px;
-  max-width: 256px;
+  max-width: 232px;
 `;
 const Title = styled.p`
   ${font.Title}
@@ -43,6 +44,11 @@ const Date = styled.p`
 const ExportLayout = styled.div`
   position: absolute;
   right: 0;
+`;
+const SchoolImgLayout = styled.div`
+  position: relative;
+  width: 100%;
+  height: 159px;
 `;
 
 export default SchoolPic;
