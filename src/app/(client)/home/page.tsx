@@ -1,6 +1,6 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import {
   Autoplay,
   HashNavigation,
@@ -18,6 +18,7 @@ import { theme } from "@/styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import NLogo from "@/assets/NLogo";
+import Footer from "@/components/@common/Footer";
 import * as S from "./style";
 import Notice from "./_components/Notice/Notice";
 import Letter from "./_components/Letter/Letter";
@@ -44,31 +45,35 @@ export default function Home() {
 
   const [newsLetter, setNewsLetter] = useState<[]>();
   const [notice, setNotice] = useState<[]>();
+  const swiper = useSwiper();
 
   useEffect(() => {
     const getNotice = async () => {
-      const res = await axios.get(
-        "https://insert.anys34.com/post?category=NOTICE&page=0&size=10",
+      const { data } = await axios.get(
+        "http://10.150.150.215:8086/post?category=NOTICE&page=0&size=10",
       );
-      setNotice(res.data.content);
+      setNotice(data.content);
     };
     getNotice();
   }, []);
 
   useEffect(() => {
     const getNewsLetter = async () => {
-      const res = await axios.get(
-        "https://insert.anys34.com/post?category=NEWS_LETTER&page=0&size=10",
+      const { data } = await axios.get(
+        "http://10.150.150.215:8086/post?category=NEWS_LETTER&page=0&size=10",
       );
-      setNewsLetter(res.data.content);
-      console.log(res.data.content);
+      setNewsLetter(data.content);
     };
     getNewsLetter();
   }, []);
 
+  const [page, setPage] = useState(0);
+  const schoolImgList = [1, 2, 3, 4];
+
   return (
     <S.Layout>
       <Swiper
+        onSlideChange={() => setPage(page + 1)}
         className="big-swiper"
         slidesPerView={1}
         modules={[Mousewheel, HashNavigation]}
@@ -161,15 +166,13 @@ export default function Home() {
           </S.Elements>
         </SwiperSlide>
         <SwiperSlide data-hash="galery">
-          <S.Center>
-            <S.SchoolPicLayout>
-              <SchoolPic />
-              <SchoolPic />
-              <SchoolPic />
-              <SchoolPic />
-            </S.SchoolPicLayout>
-          </S.Center>
+          <S.SchoolPicLayout>
+            {schoolImgList?.map((item, index) => <SchoolPic index={index} />)}
+          </S.SchoolPicLayout>
         </SwiperSlide>
+        {/* <SwiperSlide>
+          <Footer color={theme.grey100} />
+        </SwiperSlide> */}
       </Swiper>
     </S.Layout>
   );

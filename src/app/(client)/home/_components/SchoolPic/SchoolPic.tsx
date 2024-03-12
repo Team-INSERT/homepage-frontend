@@ -4,9 +4,13 @@ import styled from "styled-components";
 import Image from "next/image";
 import Sea from "@/assets/Sea.png";
 
-const SchoolPic = () => {
+type Index = {
+  index: number;
+};
+
+const SchoolPic = ({ index }: Index) => {
   return (
-    <ElementLayout>
+    <ElementLayout index={index}>
       <ExportLayout>
         <Export />
       </ExportLayout>
@@ -21,11 +25,12 @@ const SchoolPic = () => {
   );
 };
 
-const ElementLayout = styled.div`
+const ElementLayout = styled.div<{ index: number }>`
   position: relative;
   width: 296px;
   ${flex.COLUMN_FLEX}
   gap: 24px;
+  ${({ index }) => (index % 2 === 1 ? "margin-top: 32px;" : null)}
 `;
 const TextLayout = styled.div`
   ${flex.COLUMN_HORIZONTAL}
