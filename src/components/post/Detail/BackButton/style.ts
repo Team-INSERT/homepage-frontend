@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { font, theme } from "@/styles";
+import { flex, font, theme } from "@/styles";
 
 export const Back = styled.div`
   display: flex;
   align-items: center;
+  ${flex.VERTICAL}
   padding: 32px 0 24px 0;
 `;
 
