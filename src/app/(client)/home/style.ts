@@ -28,11 +28,7 @@ export const Center = styled.div`
   ${flex.COLUMN_CENTER}
 `;
 export const BigContent = styled.p`
-  font-family: "Wanted Sans";
-  font-size: 60px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: 110%;
+  ${font.BigTitle3}
   color: ${theme.grey900};
 `;
 export const SmallContent = styled.p`
@@ -45,68 +41,6 @@ export const HomeIcon = styled.div<{ index: number }>`
   bottom: 0;
   ${({ index }) => (index % 2 === 0 ? "right: 0;" : "left: 0;")}
   ${({ index }) => `top: 50%; transform: translateY(${translateY[index]});`}
-`;
-export const BannerLayout = styled.div`
-  margin-top: 100px;
-  width: 720px;
-  height: 620px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-`;
-export const Mou = styled.div`
-  width: 168px;
-  height: 215px;
-  border-radius: 16px;
-  background-color: ${theme.bssmBlue};
-`;
-export const Sw = styled.div`
-  width: 168px;
-  height: 178px;
-  border-radius: 16px;
-  background-color: ${theme.pink};
-  justify-self: center;
-`;
-export const ImgBanner = styled.div`
-  width: 360px;
-  height: 178px;
-  border-radius: 16px;
-  background-color: ${theme.bssmBlue};
-`;
-export const Code = styled.div`
-  width: 168px;
-  height: 203px;
-  border-radius: 16px;
-  background-color: ${theme.red};
-`;
-export const Shape = styled.div`
-  width: 116px;
-  height: 138px;
-  border-radius: 16px;
-  background-color: ${theme.black};
-`;
-export const Bssm = styled.div`
-  width: 232px;
-  height: 138px;
-  border-radius: 16px;
-  background-color: ${theme.bssmBlue};
-`;
-export const Company = styled.div`
-  width: 360px;
-  height: 178px;
-  border-radius: 16px;
-  background-color: ${theme.black};
-`;
-export const Ed = styled.div`
-  width: 168px;
-  height: 178px;
-  border-radius: 16px;
-  background-color: ${theme.green};
-`;
-export const Bs = styled.div`
-  width: 168px;
-  height: 434px;
-  border-radius: 16px;
-  background-color: ${theme.bssmBlue};
 `;
 export const Elements = styled.div`
   height: auto;

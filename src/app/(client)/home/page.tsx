@@ -19,10 +19,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import NLogo from "@/assets/NLogo";
 import Footer from "@/components/@common/Footer";
-import * as S from "./style";
+import { usePostLetter, usePostNotice } from "@/services/post/usePostService";
 import Notice from "./_components/Notice/Notice";
 import Letter from "./_components/Letter/Letter";
 import SchoolPic from "./_components/SchoolPic/SchoolPic";
+import * as S from "./style";
 
 interface NoticeProp {
   title: "";
@@ -45,36 +46,22 @@ export default function Home() {
 
   const [newsLetter, setNewsLetter] = useState<[]>();
   const [notice, setNotice] = useState<[]>();
-  const swiper = useSwiper();
-
-  useEffect(() => {
-    const getNotice = async () => {
-      const { data } = await axios.get(
-        "http://10.150.150.215:8086/post?category=NOTICE&page=0&size=10",
-      );
-      setNotice(data.content);
-    };
-    getNotice();
-  }, []);
-
-  useEffect(() => {
-    const getNewsLetter = async () => {
-      const { data } = await axios.get(
-        "http://10.150.150.215:8086/post?category=NEWS_LETTER&page=0&size=10",
-      );
-      setNewsLetter(data.content);
-    };
-    getNewsLetter();
-  }, []);
 
   const [page, setPage] = useState(0);
   const schoolImgList = [1, 2, 3, 4];
+
+  // api
+  const { data: postNotice } = usePostNotice();
+  const { data: postLetter } = usePostLetter();
+
+  // console.log(postLetter);
+  // console.log(postNotice);
 
   return (
     <S.Layout>
       <Swiper
         onSlideChange={() => setPage(page + 1)}
-        className="big-swiper"
+        className="main-swiper"
         slidesPerView={1}
         modules={[Mousewheel, HashNavigation]}
         mousewheel
@@ -103,20 +90,7 @@ export default function Home() {
             <S.HomeIcon index={index}>{item.icon}</S.HomeIcon>
           </SwiperSlide>
         ))}
-        <SwiperSlide data-hash="pictures">
-          <S.Center>
-            <S.BannerLayout>
-              <S.Mou />
-              <S.Sw />
-              <S.ImgBanner />
-              <S.Code />
-              <S.Shape />
-              <S.Bssm />
-              <S.Company />
-              <S.Ed />
-            </S.BannerLayout>
-          </S.Center>
-        </SwiperSlide>
+        <SwiperSlide data-hash="pictures" />
         <SwiperSlide data-hash="homePost">
           <S.Elements>
             <S.PostLayout>
@@ -171,7 +145,7 @@ export default function Home() {
           </S.SchoolPicLayout>
         </SwiperSlide>
         {/* <SwiperSlide>
-          <Footer color={theme.grey100} />
+          <Footer color="" />
         </SwiperSlide> */}
       </Swiper>
     </S.Layout>
