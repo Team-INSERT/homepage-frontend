@@ -73,6 +73,7 @@ export const Etc = styled.p`
 export const Items = styled.div`
   ${flex.BETWEEN}
   flex-direction: row;
+  margin-top: 20px;
 `;
 
 export const Item = styled.div`
