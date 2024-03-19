@@ -1,3 +1,5 @@
+"use client";
+
 import software from "@/assets/software.png";
 import problem from "@/assets/problem.png";
 import creativity from "@/assets/creativity.png";

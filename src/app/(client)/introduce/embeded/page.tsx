@@ -1,3 +1,5 @@
+"use client";
+
 import embeded from "@/assets/embeded.png";
 import problem from "@/assets/problem.png";
 import creativity from "@/assets/creativity.png";
