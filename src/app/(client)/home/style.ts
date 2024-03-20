@@ -1,10 +1,10 @@
 import { flex, font, theme } from "@/styles";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Main = styled.div`
   width: 100%;
   height: 100vh;
-  ${flex.CENTER}
+  ${flex.COLUMN_CENTER}
 `;
 export const MainTitle = styled.p`
   ${font.ExtraBigTitle}
@@ -14,17 +14,28 @@ export const Layout = styled.div`
 `;
 export const DownGuide = styled.div`
   position: absolute;
-  bottom: 5%;
+  bottom: 3%;
   ${flex.COLUMN_CENTER}
   gap: 8px;
 `;
+const guideColor = keyframes`
+  0% {
+    color: ${theme.grey400};
+  }
+  50% {
+    color: ${theme.grey600};
+  }
+  100% {
+    color: ${theme.grey400};
+  }
+`;
 export const TextGuide = styled.p`
   ${font.SmallTitle}
-  color: ${theme.grey400};
+  animation: ${guideColor} 1.5s infinite;
 `;
 export const Center = styled.div`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 64px);
   ${flex.COLUMN_CENTER}
 `;
 export const BigContent = styled.p`

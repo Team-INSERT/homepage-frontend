@@ -1,28 +1,25 @@
 "use client";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import {
-  Autoplay,
-  HashNavigation,
-  Mousewheel,
-  Pagination,
-} from "swiper/modules";
+import { useState } from "react";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Mousewheel, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+
 import Arrow from "@/assets/Arrow";
 import Exclude from "@/assets/Exclude";
 import Spike from "@/assets/Spike";
 import SharpArrow from "@/assets/SharpArrow";
 import Cloba from "@/assets/Cloba";
 import { theme } from "@/styles";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import NLogo from "@/assets/NLogo";
+
 import Footer from "@/components/@common/Footer";
 import { usePostLetter, usePostNotice } from "@/services/post/usePostService";
-import Notice from "./_components/Notice/Notice";
-import Letter from "./_components/Letter/Letter";
-import SchoolPic from "./_components/SchoolPic/SchoolPic";
+import Notice from "./_components/Notice";
+import Letter from "./_components/Letter";
+import SchoolPic from "./_components/SchoolPic";
 import * as S from "./style";
 
 interface NoticeProp {
@@ -37,6 +34,7 @@ export interface LetterProp {
 }
 
 export default function Home() {
+  const schoolImgList = [1, 2, 3, 4];
   const pages = [
     { main: "Communication", sub: "소통", icon: <Exclude /> },
     { main: "Consideration", sub: "배려", icon: <Spike /> },
@@ -44,35 +42,23 @@ export default function Home() {
     { main: "Creativity", sub: "창의성", icon: <Cloba /> },
   ];
 
-  const [newsLetter, setNewsLetter] = useState<[]>();
-  const [notice, setNotice] = useState<[]>();
-
   const [page, setPage] = useState(0);
-  const schoolImgList = [1, 2, 3, 4];
 
-  // api
   const { data: postNotice } = usePostNotice();
   const { data: postLetter } = usePostLetter();
-
-  // console.log(postLetter);
-  // console.log(postNotice);
 
   return (
     <S.Layout>
       <Swiper
         onSlideChange={() => setPage(page + 1)}
-        className="main-swiper"
         slidesPerView={1}
-        modules={[Mousewheel, HashNavigation]}
+        modules={[Mousewheel]}
         mousewheel
         direction="vertical"
         speed={1000}
         touchRatio={1}
-        hashNavigation={{
-          watchState: true,
-        }}
       >
-        <SwiperSlide data-hash="slide1">
+        <SwiperSlide>
           <S.Main>
             <S.MainTitle>4C로 하나되는 우리</S.MainTitle>
             <S.DownGuide>
@@ -90,8 +76,10 @@ export default function Home() {
             <S.HomeIcon index={index}>{item.icon}</S.HomeIcon>
           </SwiperSlide>
         ))}
-        <SwiperSlide data-hash="pictures" />
-        <SwiperSlide data-hash="homePost">
+        <SwiperSlide>
+          <S.Layout />
+        </SwiperSlide>
+        <SwiperSlide>
           <S.Elements>
             <S.PostLayout>
               <S.BlueBlur />
@@ -114,7 +102,7 @@ export default function Home() {
                     clickable: true,
                   }}
                 >
-                  {notice?.map((item: NoticeProp) => (
+                  {postNotice?.content?.map((item: NoticeProp) => (
                     <SwiperSlide key={item.id}>
                       <Notice title={item.title} />
                     </SwiperSlide>
@@ -125,7 +113,7 @@ export default function Home() {
             <S.HomeLettersLayout>
               <S.LettersTitle>가정통신문</S.LettersTitle>
               <S.LettersLayout>
-                {newsLetter?.map((item: LetterProp, index) =>
+                {postLetter?.content?.map((item: LetterProp, index: number) =>
                   index < 3 ? (
                     <Letter
                       title={item.title}
@@ -139,9 +127,11 @@ export default function Home() {
             </S.HomeLettersLayout>
           </S.Elements>
         </SwiperSlide>
-        <SwiperSlide data-hash="galery">
+        <SwiperSlide>
           <S.SchoolPicLayout>
-            {schoolImgList?.map((item, index) => <SchoolPic index={index} />)}
+            {schoolImgList?.map((item, index) => (
+              <SchoolPic key={index} index={index} />
+            ))}
           </S.SchoolPicLayout>
         </SwiperSlide>
         {/* <SwiperSlide>
