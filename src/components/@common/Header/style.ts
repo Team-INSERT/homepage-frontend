@@ -5,7 +5,7 @@ export const Container = styled.div<{ isDarkMode: boolean }>`
   ${flex.BETWEEN};
   background-color: ${theme.white};
   width: 100%;
-  position: sticky;
+  position: fixed;
   padding: 15px 140px 15px 140px;
   z-index: 9999;
 

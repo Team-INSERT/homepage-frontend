@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Mousewheel, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -14,6 +12,16 @@ import SharpArrow from "@/assets/SharpArrow";
 import Cloba from "@/assets/Cloba";
 import { theme } from "@/styles";
 import NLogo from "@/assets/NLogo";
+import TrianglesBlock from "@/assets/Banners/TrianglesBlock";
+import Brace from "@/assets/Banners/Brace";
+import Company from "@/assets/Banners/Company";
+import Awl from "@/assets/Banners/Awl";
+import Bssm from "@/assets/Banners/Bssm";
+import Bssm2 from "@/assets/Banners/Bssm2";
+import Employment from "@/assets/Banners/Employment";
+import EB from "@/assets/Banners/EB";
+import SW from "@/assets/Banners/SW";
+import Future from "@/assets/Banners/Future";
 
 import Footer from "@/components/@common/Footer";
 import { usePostLetter, usePostNotice } from "@/services/post/usePostService";
@@ -42,15 +50,12 @@ export default function Home() {
     { main: "Creativity", sub: "창의성", icon: <Cloba /> },
   ];
 
-  const [page, setPage] = useState(0);
-
   const { data: postNotice } = usePostNotice();
   const { data: postLetter } = usePostLetter();
 
   return (
     <S.Layout>
       <Swiper
-        onSlideChange={() => setPage(page + 1)}
         slidesPerView={1}
         modules={[Mousewheel]}
         mousewheel
@@ -68,7 +73,7 @@ export default function Home() {
           </S.Main>
         </SwiperSlide>
         {pages.map((item, index) => (
-          <SwiperSlide key={index} data-hash={item.main}>
+          <SwiperSlide key={index}>
             <S.Center>
               <S.BigContent>{item.main}</S.BigContent>
               <S.SmallContent>{item.sub}</S.SmallContent>
@@ -77,7 +82,32 @@ export default function Home() {
           </SwiperSlide>
         ))}
         <SwiperSlide>
-          <S.Layout />
+          <S.Layout>
+            <S.HeaderBlock />
+            <S.BannerLayout>
+              <S.Grid>
+                <TrianglesBlock />
+                <Brace />
+                <S.Reward />
+              </S.Grid>
+              <S.Grid>
+                <Company />
+                <S.SmallGrid>
+                  <Awl />
+                  <Bssm />
+                  <S.Colspan>
+                    <Future />
+                  </S.Colspan>
+                </S.SmallGrid>
+                <Bssm2 />
+              </S.Grid>
+              <S.Grid>
+                <Employment />
+                <EB />
+                <SW />
+              </S.Grid>
+            </S.BannerLayout>
+          </S.Layout>
         </SwiperSlide>
         <SwiperSlide>
           <S.Elements>

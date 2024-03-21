@@ -35,7 +35,7 @@ export const TextGuide = styled.p`
 `;
 export const Center = styled.div`
   width: 100%;
-  height: calc(100vh - 64px);
+  height: 100vh;
   ${flex.COLUMN_CENTER}
 `;
 export const BigContent = styled.p`
@@ -53,15 +53,50 @@ export const HomeIcon = styled.div<{ index: number }>`
   ${({ index }) => (index % 2 === 0 ? "right: 0;" : "left: 0;")}
   ${({ index }) => `top: 50%; transform: translateY(${translateY[index]});`}
 `;
+export const HeaderBlock = styled.div`
+  height: 64px;
+  width: 100%;
+`;
+export const BannerLayout = styled.div`
+  margin-right: 13.5%;
+  margin-left: 13.5%;
+  ${flex.COLUMN_CENTER}
+  height: calc(100% - 64px);
+`;
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  max-width: 719px;
+
+  &:nth-child(2),
+  &:last-child {
+    margin-top: 12px;
+  }
+`;
+export const SmallGrid = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 13px;
+`;
+export const Colspan = styled.div`
+  grid-column: 1/-1;
+`;
+export const Reward = styled.div`
+  width: 360px;
+  height: 178px;
+  background-color: aliceblue;
+`;
 export const Elements = styled.div`
   height: auto;
   ${flex.COLUMN_FLEX}
   margin-top: 115px;
   gap: 121px;
+  margin-left: 13.5%;
+  margin-right: 13.5%;
 `;
 export const PostLayout = styled.div`
   z-index: 2;
-  width: 50%;
   height: 130px;
   ${flex.COLUMN_CENTER}
   position: relative;
@@ -105,18 +140,15 @@ export const BlueBlur = styled.div`
 `;
 export const HomeLettersLayout = styled.div`
   width: 100%;
-  ${flex.COLUMN_START}
   gap: 16px;
 `;
 export const LettersTitle = styled.p`
-  width: 50%;
   color: ${theme.grey900};
   ${font.BigText}
 `;
 export const LettersLayout = styled.div`
   ${flex.BETWEEN}
   gap: 24px;
-  width: 50%;
 `;
 export const SchoolPicLayout = styled.div`
   display: flex;
